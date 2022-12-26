@@ -6,29 +6,38 @@ import numpy as np
 # *** in order to minimize the loss.  Common optimization algorithms for linear *** #
 # *** regression include gradient descent and stochastic gradient descent.      *** #
 
-def sigmoid():
-    pass
-
-def tanh():
-    pass
-
-def relu():
-    pass
-
-class LR:
-    def __init__(self):
+class LinearRegression:
+    def __init__(self, x, y):
+        self.data = x
+        self.label = y
+        self.m = 0
+        self.b = 0
+        self.n = len(x)
         pass
 
-    def __str__(self):
-        pass
 
-    def forward(self):
-        pass
 
-    def backward(self):
-        pass
+    # '''The forward pass involves using the model's parameters to make predictions on the training data.'''
+    def fit(self, epochs, lr):
 
-    def loss():
-        pass
+        # Implementing gradient descent
+        for i in range(epochs):
+            y_pred = self.m*self.data*self.b
+
+            #Calculating derivatives w.r.t Parameters
+            D_m = (-2/self.n)*sum(self.data * (self.label - y_pred))
+            D_b = (-1/self.n)*sum(self.label-y_pred)
+
+
+            #Updating Parameters
+            self.m = self.m - lr * D_m
+            self.c = self.b - lr * D_c
+
+
+
+    def predict(self , inp):
+        y_pred = self.m * inp + self.b 
+        return y_pred
+
 
     
